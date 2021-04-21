@@ -12,9 +12,10 @@
 
 const togglePopup = () => {
   // получаем все кнопки по которым вызываем модальное окно
-  const popupBtns = document.querySelectorAll('.callback-btn');
-  const modalOverlay = document.querySelector('.modal-overlay');
-  const modal = document.querySelector('.modal-callback');
+  const popupBtns = document.querySelectorAll('.callback-btn'); // кнопки Заказать звонок
+  const buttonServices = document.querySelector('.button-services'); // кнопка из faq
+  const modalOverlay = document.querySelector('.modal-overlay'); // подложка под окно
+  const modal = document.querySelector('.modal-callback'); // модальное окно
 
   // отобразить модальное окно
   const showModal = () => {
@@ -34,6 +35,14 @@ const togglePopup = () => {
     modal.classList.add('animated', 'fadeOut');
   };
 
+  // * клпик по кнопкам Заказать звонок callback-btn Открывает окно
+  popupBtns.forEach((popupBtn) => {
+    popupBtn.addEventListener('click', (event) => showModal());
+  });
+
+  // * клик по кнопке ЗВОНИТЕ, МЫ ОБЯЗАТЕЛЬНО ВАМ ПОМОЖЕМ!
+  buttonServices.addEventListener('click', (event) => showModal());
+
   // * клик по overlay Закрывает окно
   modalOverlay.addEventListener('click', (event) => {
     closeModal();
@@ -42,11 +51,6 @@ const togglePopup = () => {
   // * клик по кнопке Закрыть modal-close button [X] Закрывает окно
   modal.querySelector('.modal-close').addEventListener('click', (event) => {
     closeModal();
-  });
-
-  // * клпик по кнопкам Заказать звонок callback-btn Открывает окно
-  popupBtns.forEach((popupBtn) => {
-    popupBtn.addEventListener('click', (event) => showModal());
   });
 };
 
