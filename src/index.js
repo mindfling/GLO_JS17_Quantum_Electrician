@@ -1,5 +1,7 @@
 'use strict';
 /** Quantum electrician Diploma project */
 
-let a = 'aoeu';
-alert('helloo' + a);
+import togglePopup from './modules/togglePopup';
+
+
+togglePopup();
