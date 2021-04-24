@@ -3,11 +3,13 @@
 
 import togglePopup from './modules/togglePopup';
 import sendForm from './modules/sendForm';
-import handleMenu from './modules/handleMenu.js';
+import handleMenu from './modules/handleMenu';
+import scrollUp from './modules/scrollUp';
 import Carousel from './modules/sliderCarousel';
 
 togglePopup();
 handleMenu();
+scrollUp();
 sendForm();
 
 // ЗАПУСК СЛАЙДЕРА КАРУСЕЛИ
