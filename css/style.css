@@ -681,6 +681,10 @@ hr.white {
 	font-size: 14px;
 	position: relative;
 }
+.contacts-section .element:hover {
+color: #e9bb26;
+border: 1px solid #e9bb26;
+}
 .contacts-section .element .icon {
 	position: absolute;
 	top: 50%;
@@ -975,6 +979,7 @@ video#video_background {
 	padding: 20px;
 	font-size: 13px;
 	color: #888885;
+	user-select: none; /* */
 }
 .accordeon .element {
 	margin-bottom: 6px;
@@ -995,6 +1000,7 @@ video#video_background {
 	-moz-transition: all 200ms ease-out;
 	-o-transition: all 200ms ease-out;
 	transition: all 200ms ease-out;
+	user-select: none; /* */
 }
 .accordeon .element.active .title {
 	background: #e9bb26;
@@ -1021,9 +1027,12 @@ video#video_background {
 .accordeon .element.active .title:before {
 	background: url(../images/minus.png) 50% 50% no-repeat #333;
 }
-.accordeon > div:first-of-type .element-content {
+.accordeon .element.active .element-content {
 	display: block;
 }
+/* .accordeon > div:first-of-type .element-content {
+	display: block;
+} */
 .accordeon .element .title:hover:before {
 	background-color: #333;
 }

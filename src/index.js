@@ -6,10 +6,12 @@ import sendForm from './modules/sendForm';
 import handleMenu from './modules/handleMenu';
 import scrollUp from './modules/scrollUp';
 import Carousel from './modules/sliderCarousel';
+import accordeon from './modules/accordeon';
 
 togglePopup();
 handleMenu();
 scrollUp();
+accordeon();
 sendForm();
 
 // ЗАПУСК СЛАЙДЕРА КАРУСЕЛИ
