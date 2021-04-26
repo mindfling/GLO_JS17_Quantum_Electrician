@@ -1,44 +1,29 @@
-'use strict';
-
-// * эффект аккордеон для блока
-// ** САМЫЕ ЧАСТЫЕ ВОПРОСЫ **
-// .accordeon-section #faq
-
-// .accordeon .element
-// .accordeon .element.active
-// .accordeon .element .title
-// .accordeon .element .element-content style="display:block;"
+// * эффект аккордеон для блока САМЫЕ ЧАСТЫЕ ВОПРОСЫ
 
 const accordeon = () => {
-  const accordeonSection = document.querySelector('.accordeon-section'); // #faq
-  const accordeon = accordeonSection.querySelector('.accordeon');
-  const elements = accordeon.querySelectorAll('.element');
+  const accordeonSection = document.querySelector('.accordeon-section'); // блок САМЫЕ ЧАСТЫЕ ВОПРОСЫ
+  const accordeon = accordeonSection.querySelector('.accordeon'); // сам аккордеон
+  const elements = accordeon.querySelectorAll('.element');  // элементы вкладки аккордеона
 
   elements.forEach((elem) => {
     const title = elem.querySelector('.title');
     const content = elem.querySelector('.element-content');
+    content.classList.add('animate__animated', 'animate__fadeInDown', 'animate__faster');
 
     title.addEventListener('click', (event) => {
-      console.log('elem: ', elem);
-      //   elem.classList.add('animate__animated');
-      //   elem.classList.add('animate__bounceIn');
-    //   content.classList.add('animate__animated', 'animate__bounceIn');
-      content.classList.add('animate__animated', 'animate__fadeInDown', 'animate__faster');
-    //   content.classList.add('animate__animated', 'animate__fadeIn');
-    //   content.classList.add('animate__animated', 'animate__zoomIn');
-      elem.classList.toggle('active');
-
-      // todo перебрать все остальные вкладки аккордеона
-
-      // event.target.closest('.element').classList.toggle('active');
-      //   elem.querySelector('.element-content').style.display = 'block';
-      //   if (content.style.display === 'block') {
-      //     content.style.display = 'none'; // * убрать
-      //   } else {
-      //     content.style.display = 'block'; // * показать контент
-      //   }
+      const target = event.target.closest('.element');
+      // перебраем все остальные вкладки аккордеона
+      elements.forEach((item) => {
+        if (item === target) {
+          item.classList.toggle('active'); // открываем вкладку
+        } else {
+          item.classList.remove('active'); // закрываем вкладку
+        }
+      });
     }); // 'click'
+
   });
 };
+
 
 export default accordeon;
