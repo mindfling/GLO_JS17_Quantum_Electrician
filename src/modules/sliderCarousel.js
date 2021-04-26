@@ -2,6 +2,7 @@
 
 export default class Carousel {
   // настройки Карусельки передаем аргументами в конмтруктор
+  
   constructor({
     main, // селектор блока всего слайдера
     wrap, // селектор обертка карусельки
@@ -10,7 +11,8 @@ export default class Carousel {
     position = 0, // текущая позиция слайда
     slidesToShow = 3, // слайдов на один показ
     infinity = true, // будет ли каруселька крутиться вечно
-    animate = false, // есть ли автоматическая анимация // todo
+    animate = false, // есть ли автоматическая анимация // 
+
   }) {
     this.main = document.querySelector(main);
     this.wrap = document.querySelector(wrap);
@@ -19,7 +21,7 @@ export default class Carousel {
     this.slides = document.querySelector(wrap).children;
     this.slidesToShow = slidesToShow; //количество слайдов за один показ
     this.options = {
-      ////todo переделать опции
+      // переделать опции
       position, // текущая позиция слайдов
       infinity: infinity,
       widthSlide: Math.floor(100 / this.slidesToShow), // в %
@@ -91,6 +93,7 @@ export default class Carousel {
     document.head.appendChild(style); // добавить блок слидей в head html страницы
   }
 
+
   controlSlider() {
     //чтобы не потерять контекст нужен bind
     this.prev.addEventListener('click', this.prevSlider.bind(this));
@@ -117,13 +120,5 @@ export default class Carousel {
       }
       this.wrap.style.transform = `translateX(-${this.options.position * this.options.widthSlide}%)`;
     }
-  }
-
-  addArrow() {
-    //добавляем свои кнопки управления слайдером если из нет в верстке //todo
-    // this.prev = document.createElement('button');
-    // this.next = document.createElement('button');
-    // this.prev.className = 'glo-slider__prev';
-    // this.next.className = 'glo-slider__next';
   }
 }

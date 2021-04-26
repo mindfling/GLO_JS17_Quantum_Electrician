@@ -10,45 +10,43 @@
 const topSlider = () => {
   const slider = document.querySelector('.top-slider');
   const slides = slider.querySelectorAll('.item');
-  const slidesLength = slides.length;
-
-
-  // init расставляем начальное значение классов
+  const slidesLength = slides.length; // количество слайдов = 3
+  const timeDelay = 3000; // смена слайдов каждые 3 секунды
+  
+  console.log('slider: ', slider);
+  console.log('slides: ', slides);
   let currentSlide = 0;
-  slides[currentSlide].classList.add('active');
-  slides[currentSlide].querySelector('.table').classList.add('active');
   let timerInterval;
 
   const autoPlaySlide = () => {
-    // console.log('currentSlide:', currentSlide);
+    // скрываем все кроме текущего
 
-    slides[currentSlide].classList.remove('active');
-    slides[currentSlide].style.opacity = 0;
-    slides[currentSlide].style.display = 'none';
-    slides[currentSlide].querySelector('.table').classList.remove('active');
+    slides.forEach((slide, index) => {
+      if (index == currentSlide) {
+        slide.classList.add('item-active');
+      } else {
+        slide.classList.remove('item-active');
+      }
+    });
 
-    if (currentSlide < slidesLength - 1) {
-      // увеличиваем следующий слай на 1
+    //крутим текущий слайд
+    if (currentSlide < 2) {
       currentSlide++;
     } else {
-      // или переходим на самый первый
       currentSlide = 0;
     }
-    slides[currentSlide].classList.add('active');
-    slides[currentSlide].style.opacity = 1;
-    slides[currentSlide].style.display = 'block';
-    slides[currentSlide].querySelector('.table').classList.add('active');
   };
 
-  // смена слайдов через каждые 3 секунды
+  // смена слайдов
   const startSlide = () => {
+    autoPlaySlide();
+
     timerInterval = setInterval(() => {
       autoPlaySlide();
-    }, 3000);
+    }, timeDelay);
   };
   startSlide();
 };
-
 
 
 export default topSlider;

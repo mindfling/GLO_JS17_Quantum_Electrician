@@ -1,19 +1,22 @@
 'use strict';
-/** Quantum electrician Diploma project */
+/** Quantum electrician Diploma project 
+ * https://github.com/mindfling/GLO_JS17_Quantum_Electrician
+*/
 
 import togglePopup from './modules/togglePopup';
-import sendForm from './modules/sendForm';
-import handleMenu from './modules/handleMenu';
-import scrollUp from './modules/scrollUp';
 import topSlider from './modules/topSlider.js';
 import Carousel from './modules/sliderCarousel';
 import accordeon from './modules/accordeon';
+import handleMenu from './modules/handleMenu';
+import scrollUp from './modules/scrollUp';
+import sendForm from './modules/sendForm';
 
-topSlider();
+
 togglePopup();
+topSlider();
+accordeon();
 handleMenu();
 scrollUp();
-accordeon();
 sendForm();
 
 
@@ -25,4 +28,3 @@ const carousel = new Carousel({
     slidesToShow: 3
 });
 carousel.init();
-
