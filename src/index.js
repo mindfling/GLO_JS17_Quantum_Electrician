@@ -8,6 +8,7 @@ import topSlider from './modules/topSlider.js';
 import Carousel from './modules/sliderCarousel';
 import accordeon from './modules/accordeon';
 import handleMenu from './modules/handleMenu';
+import toggleMobileMenu from './modules/toggleMobileMenu';
 import scrollUp from './modules/scrollUp';
 import sendForm from './modules/sendForm';
 
@@ -16,6 +17,7 @@ togglePopup();
 topSlider();
 accordeon();
 handleMenu();
+toggleMobileMenu();
 scrollUp();
 sendForm();
 
