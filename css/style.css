@@ -856,11 +856,22 @@ border: 1px solid #e9bb26;
 	overflow: hidden;
 	height: 450px;
 }
+/* */
 .top-slider .item {
 	overflow: hidden;
 	height: 450px;
-	position: relative;
+	/* position: relative; */
+	position: absolute;
+	width: 100%;
+	opacity: 0;
+	/* задержка анимации */ 
+	transition: all .5s ease
 }
+/* */
+.top-slider .item-active {
+  opacity: 1;
+}
+/* */
 .top-slider .item:before {
 	content: "";
 	display: block;
